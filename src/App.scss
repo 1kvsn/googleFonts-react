@@ -1,0 +1,321 @@
+/* CSS Resets */
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin                  : 0;
+	padding                 : 0;
+	border                  : 0;
+	font-size               : 100%;
+	font                    : inherit;
+	vertical-align          : baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display                 : block;
+}
+body {
+	line-height             : 1;
+}
+ol, ul {
+	list-style              : none;
+}
+blockquote, q {
+	quotes                  : none;
+}
+blockquote                :before, blockquote:after,
+q                         :before, q:after {
+	content                 : '';
+	content                 : none;
+}
+table {
+	border-collapse         : collapse;
+	border-spacing          : 0;
+}
+
+/* Main CSS */
+                          :root {
+	--bg-primary            : #4e5266;
+	--bg-secondary          : #575B72;
+	--color-primary         : #4cabb1;
+	--color-secondary       : #69c7ad;
+	--color-tertiary        : #fed586;
+	--font                  : 'Raleway', sans-serif;
+	--text-color            : #434b56;
+	--heading-color         : #fff;
+	font-size               : 16px;
+}
+body {
+	font-family             : var(--font);
+	line-height             : 1.5;
+	color                   : var(--text-color);
+}
+
+
+/********** Base CSS *************/
+*, *                      :before, *:after {
+	box-sizing              : border-box;
+}
+
+button {
+	border                  : 0;
+	cursor                  : pointer;
+}
+button                    :focus {
+	outline                 : 0;
+}
+input {
+	border                  : 0;
+	margin                  : 0;
+}
+input                     :focus {
+	outline                 : 0;
+}
+/** Heading Elements **/
+h1 {
+	font-size               : 3rem;
+	font-weight             : 700;
+}
+h2 {
+	font-size               : 2.5rem;
+	font-weight             : 700;
+}
+h3 {
+	font-size               : 2rem;
+	font-weight             : 700;
+}
+h4 {
+	font-size               : 1.5rem;
+	font-weight             : 700;
+}
+h5 {
+	font-size               : 1rem;
+	font-weight             : 700;
+}
+h6 {
+	font-size               : 0.8rem;
+	font-weight             : 700;
+}
+.float-left {
+	float                   : left;
+}
+.float-right {
+	float                   : right;
+}
+.capitalize {
+	text-transform          : capitalize;
+}
+.uppercase {
+	text-transform          : uppercase;
+}
+.text-center {
+	text-align              : center;
+}
+.text-left {
+	text-align              : left;
+}
+.text-right {
+	text-align              : right;
+}
+.img-responsive {
+	width                   : 100%;
+}
+/** clearfix **/
+.clearfix                 :before, .clearfix:after {
+	content                 : '';
+	display                 : table;
+}
+.clearfix                 :after {
+	clear                   : both;
+}
+.clearfix {
+	*zoom                   : 1;
+}
+
+/* General */
+.wrapper {
+	max-width               : 1100px;
+	width                   : 100%;
+	margin                  : 0 auto;
+}
+.padding {
+	padding                 : 80px 0;
+}
+.heading {
+	color                   : var(--heading-color);
+	font-size               : 1.5rem;
+	font-weight             : 500;
+	letter-spacing          : 0.05rem;
+}
+.heading-secondary {
+	color                   : var(--text-color);
+}
+.sub-heading {
+	font-weight             : 400;
+	color                   : #b6babf;
+}
+
+
+/* Font- Browser Styles */
+
+.main-wrapper {
+  max-width               : 1200px;
+  width                   : 100%;
+  margin                  : 0 auto;
+	border                  : 0.1px solid rgb(218, 218, 218);
+	text-align              : center;
+
+	//Test
+	background-color        : #FF665E;
+
+	.header-btn {
+
+			span {
+				color             : rgb(0, 0, 0);
+				font-weight       : bold;
+				padding           : 15px;
+				letter-spacing    : 0.5px;
+				font-family       : 'Courier New', Courier, monospace;
+			}
+		// .f-btn {
+
+		// }
+
+		.one-btn {
+			background-color    : #4285F4;
+		}
+		.two-btn {
+			background-color    : #DB4437;
+		}
+		.three-btn {
+			background-color    : #F4B400;
+		}
+		.four-btn {
+			background-color    : #4285F4;
+		}
+		.five-btn {
+			background-color    : #0F9D58;
+		}
+		.six-btn {
+			background-color    : #DB4437;
+		}
+	}
+	
+	.input-container input {
+		max-width             : 98%;
+		width                 : 98%;
+		border                : 0.1px solid;
+		height                : 24px;
+		margin                : 10px;
+		padding               : 10px;
+	}
+	.font-section {
+		display               : flex;
+		flex-wrap             : wrap;
+		justify-content       : center;
+		
+		.font-header {
+			display             : flex;
+			justify-content     : space-around;
+			position            : relative;
+
+			.font-sizer-btn {
+				position          : absolute;
+				top               : -5px;
+				right             : 26px;
+
+				button            :first-child {
+					font-size       : 10px;
+					background-color: #ff5252;
+					border          : 0.5px solid #ff5252;
+					font-weight     : bold;
+					color           : #fff;
+					margin          : 2px;
+				}
+
+				button            :last-child {
+					font-size       : 10px;
+					background-color: #fff;
+					font-weight     : bold;
+					border          : 0.5px solid #ff5252;
+					color           : #ff5252
+				}
+			}
+		}
+
+		.font-wrapper {
+			width               : 260px;
+			min-height          : 160px;
+			margin              : 4px 5px;
+			font-family         : "Raleway";
+			word-wrap           : break-word;
+			position            : relative;
+			
+	
+			.font-title {
+				font-size         : 12px;
+				text-align        : left;
+				padding-left      : 10px;
+				position          : absolute;
+				top               : 0;
+				left              : 5px;
+			}
+			
+			.user-text {
+				font-size         : 18px;
+				color             : rgb(110, 110, 110);
+				margin-top        : 25px;
+				padding-top       : 12px;
+				border-top        : 0.1px;
+				border-top-color  : rgb(46, 46, 46);
+				border-top-style  : solid;
+
+			}
+		}
+		.font-wrapper         :hover {
+			background-color    : rgb(248, 248, 248);
+			cursor              : pointer;
+		}
+	}
+
+	// Footer Styles
+	.footer {
+		padding               : 10px;
+
+		ul {
+			display             : flex;
+			justify-content     : center;
+			margin              : 10px;		
+			
+			button {
+				margin            : 5px;
+			}
+		}
+
+		p {
+			font-family         : 'Courier New', Courier, monospace;
+			font-size           : 12px;
+
+			a {
+				color             : #30ba67;
+				text-decoration   : none;
+			}
+		}
+	}
+}
+
+// Color Themes
+
+// Red Shade
+// Use Ad Color
