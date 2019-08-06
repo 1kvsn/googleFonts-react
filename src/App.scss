@@ -145,7 +145,7 @@ h6 {
 
 /* General */
 .wrapper {
-	max-width               : 1100px;
+	max-width               : 1200px;
 	width                   : 100%;
 	margin                  : 0 auto;
 }
@@ -170,14 +170,12 @@ h6 {
 /* Font- Browser Styles */
 
 .main-wrapper {
-  max-width               : 1200px;
-  width                   : 100%;
+	max-width               : 1200px;
+	width                   : 100%;
   margin                  : 0 auto;
 	border                  : 0.1px solid rgb(218, 218, 218);
 	text-align              : center;
 
-	//Test
-	background-color        : #FF665E;
 
 	.header-btn {
 
@@ -216,7 +214,7 @@ h6 {
 		max-width             : 98%;
 		width                 : 98%;
 		border                : 0.1px solid;
-		height                : 24px;
+		height                : 34px;
 		margin                : 10px;
 		padding               : 10px;
 	}
@@ -224,6 +222,7 @@ h6 {
 		display               : flex;
 		flex-wrap             : wrap;
 		justify-content       : center;
+		margin-top: 25px;
 		
 		.font-header {
 			display             : flex;
@@ -231,40 +230,48 @@ h6 {
 			position            : relative;
 
 			.font-sizer-btn {
+				display: flex;
 				position          : absolute;
 				top               : -5px;
 				right             : 26px;
+				background: none;
 
-				button            :first-child {
-					font-size       : 10px;
-					background-color: #ff5252;
-					border          : 0.5px solid #ff5252;
+				.font-sizer-common {
+					font-size       : 12px;
 					font-weight     : bold;
+					padding: 2px 5px;
+					border-radius: 50%;
+					border          : 1px solid #ff5252;
+				}
+				
+				.plus-btn {
+					margin-right: 4px;
+					background-color: #ff5252;
 					color           : #fff;
-					margin          : 2px;
 				}
 
-				button            :last-child {
-					font-size       : 10px;
+				.minus-btn {
 					background-color: #fff;
-					font-weight     : bold;
-					border          : 0.5px solid #ff5252;
-					color           : #ff5252
+					color           : #ff5252;
 				}
 			}
 		}
 
+		.minus-btn:hover, .plus-btn:hover {
+			cursor: pointer;
+		}
+
 		.font-wrapper {
-			width               : 260px;
+			width               : 285px;
 			min-height          : 160px;
 			margin              : 4px 5px;
 			font-family         : "Raleway";
 			word-wrap           : break-word;
 			position            : relative;
-			
-	
+			margin-top: 20px;
+
 			.font-title {
-				font-size         : 12px;
+				font-size         : 14px;
 				text-align        : left;
 				padding-left      : 10px;
 				position          : absolute;
@@ -283,15 +290,17 @@ h6 {
 
 			}
 		}
-		.font-wrapper         :hover {
+
+		.font-wrapper        	:hover {
 			background-color    : rgb(248, 248, 248);
-			cursor              : pointer;
+			// cursor              : pointer;
 		}
 	}
 
 	// Footer Styles
 	.footer {
 		padding               : 10px;
+		margin-top: 0px;
 
 		ul {
 			display             : flex;
@@ -314,8 +323,3 @@ h6 {
 		}
 	}
 }
-
-// Color Themes
-
-// Red Shade
-// Use Ad Color

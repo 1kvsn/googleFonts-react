@@ -1,5 +1,5 @@
 export default function fontsReducer (state=[], action) {
-	console.log(state, action);
+	// console.log(state, action);
 	switch (action.type) {
 		case "ADD_FONTS":
 			return action.payload;

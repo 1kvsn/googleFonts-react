@@ -1,23 +1,21 @@
 import React from 'react';
-import {createStore} from 'redux';
-import reducer from '../reducers/fonts-reducer';
+import { createStore } from 'redux';
 import { connect } from 'react-redux';
 import WebFont from 'webfontloader';
-import Messages from './Messages';
+
 import Nav from './Nav';
+import Messages from './Messages';
+import reducer from '../reducers/fonts-reducer';
 
 export const store = createStore(reducer);
 
 class Page2 extends React.Component {
-	constructor() {
-		super();
 
-		this.state = {
+		state = {
 			inputVal: "",
-			fontSize: 14,
+			fontSize: 18,
 			isChecked: false,
 		}
-	}
 
 	// Hijacked the user input and update it on React state.
 	handleInput = (e) => {
@@ -34,7 +32,7 @@ class Page2 extends React.Component {
 
 	// Font Effect Method
 	handleEffect = (data) => {
-		console.log(data);
+		// console.log(data);
 		this.setState({isChecked: !this.state.isChecked,})
 		this.props.dispatch({type: "TOGGLE", payload: data})
 		// console.log('handle effect called', this.state.isChecked);
@@ -53,15 +51,20 @@ class Page2 extends React.Component {
 		const {fontsReducer} =this.props.fonts;
 		const slicedArr = fontsReducer.slice(19, 35);
 
-		// function(array) {
-		// 	return array.slice()
-		// }
-		// console.log(slicedArr, 'this is sliced array');
-
 		return (
 			<>
 				<div className="main-wrapper">
-					<h1>Google Fonts Browser</h1>
+					<div className="header-btn">
+						<button className="f-btn one-btn">G</button>
+						<button className="f-btn two-btn">o</button>
+						<button className="f-btn three-btn">o</button>
+						<button className="f-btn four-btn">g</button>
+						<button className="f-btn five-btn">l</button>
+						<button className="f-btn six-btn">e</button>
+							<span>
+								Fonts Browser
+							</span>
+						</div>
 					<div className="input-container">
 						<input onChange={(e) => this.handleInput(e)} type="text" placeholder="enter text here..."/>
 					</div>
@@ -69,26 +72,15 @@ class Page2 extends React.Component {
 					
 					{
 						slicedArr.map((items, i) => (
-							<div className="font-wrapper">
-								<svg height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
-									<path class="theme-chooser-icon-bucket" d="M16.56 8.94L7.62 0 6.21 1.41l2.38 2.38-5.15 5.15c-.59.59-.59 1.54 0 2.12l5.5 5.5c.29.29.68.44 1.06.44s.77-.15 1.06-.44l5.5-5.5c.59-.58.59-1.53 0-2.12zM5.21 10L10 5.21 14.79 10H5.21zM19 11.5s-2 2.17-2 3.5c0 1.1.9 2 2 2s2-.9 2-2c0-1.33-2-3.5-2-3.5z"></path>
-									<path class="theme-chooser-icon-paint" d="M0 20h24v4H0z"></path>
-								</svg>
+							<div className="font-wrapper" key={i}>
 								<div className="font-header">
 									<p className="font-title">{items.family}</p>
 
 									{/* Font Size Button */}
 									<span className="font-sizer-btn">
-										<button onClick={() => this.handleInc()}><p className="plus-btn">+</p></button>
-										<button onClick={() => this.handleDec()}><p className="minus-btn">-</p></button>
+										<div onClick={() => this.handleInc()}><p className="plus-btn font-sizer-common">+</p></div>
+										<div onClick={() => this.handleDec()}><p className="minus-btn font-sizer-common">-</p></div>
 									</span>
-
-									{/* Font Styles Button */}
-
-									{/* <label className="switch">
-										<input type="checkbox" checked={items.isClicked} onChange={() => this.handleEffect(items)} />
-										<span className="slider round"></span>
-									</label> */}
 								</div>
 								<div className="divider" />
 
@@ -115,7 +107,7 @@ class Page2 extends React.Component {
 					{/* Footer Section */}
 					<footer className="footer">
 						<Nav />
-						<p>Made with &#9829; @ <a href="https://altcampus.io" target="_blank">AltCampus</a></p>
+						<p>Made with &#9829; @ <a href="https://altcampus.io" target="_blank" rel="noopener noreferrer">AltCampus</a></p>
 					</footer>
 				</div>
 			</>

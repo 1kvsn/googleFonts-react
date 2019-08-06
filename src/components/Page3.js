@@ -9,13 +9,12 @@ import reducer from '../reducers/fonts-reducer';
 
 export const store = createStore(reducer);
 
-class Home extends React.Component {
-	
+class Page3 extends React.Component {
+
 		state = {
 			inputVal: "",
 			fontSize: 18,
 			isChecked: false,
-			themeColor: "",
 		}
 
 	// Hijacked the user input and update it on React state.
@@ -33,18 +32,11 @@ class Home extends React.Component {
 
 	// Font Effect Method
 	handleEffect = (data) => {
+		// console.log(data);
 		this.setState({isChecked: !this.state.isChecked,})
 		this.props.dispatch({type: "TOGGLE", payload: data})
+		// console.log('handle effect called', this.state.isChecked);
 	}
-
-	// nextPage = () => {
-	// 	this.setState({
-	// 		nextPageValue: [{
-	// 			a: this.state.nextPageValue[0].a*2,
-	// 			b: this.state.nextPageValue[0].b*2,
-	// 		}]
-	// 	})
-	// }
 
 	// Web Font Loader Method
 	 loadFont = (font) => {
@@ -57,11 +49,11 @@ class Home extends React.Component {
 
 	render() {
 		const {fontsReducer} =this.props.fonts;
-		const slicedArr = fontsReducer.slice(2, 18);
+		const slicedArr = fontsReducer.slice(36, 52);
 
 		return (
 			<>
-				<div className="main-wrapper" style={{backgroundColor: this.state.themeColor}} >
+				<div className="main-wrapper">
 					<div className="header-btn">
 						<button className="f-btn one-btn">G</button>
 						<button className="f-btn two-btn">o</button>
@@ -69,16 +61,15 @@ class Home extends React.Component {
 						<button className="f-btn four-btn">g</button>
 						<button className="f-btn five-btn">l</button>
 						<button className="f-btn six-btn">e</button>
-						<span>
-							Fonts Browser
-						</span>
-					</div>
-
+							<span>
+								Fonts Browser
+							</span>
+						</div>
 					<div className="input-container">
 						<input onChange={(e) => this.handleInput(e)} type="text" placeholder="enter text here..."/>
 					</div>
-
 					<section className="font-section">
+					
 					{
 						slicedArr.map((items, i) => (
 							<div className="font-wrapper" key={i}>
@@ -90,9 +81,8 @@ class Home extends React.Component {
 										<div onClick={() => this.handleInc()}><p className="plus-btn font-sizer-common">+</p></div>
 										<div onClick={() => this.handleDec()}><p className="minus-btn font-sizer-common">-</p></div>
 									</span>
-
-									
 								</div>
+								<div className="divider" />
 
 								{/* Conditional Rendering for Font Effects */}
 
@@ -116,8 +106,7 @@ class Home extends React.Component {
 
 					{/* Footer Section */}
 					<footer className="footer">
-						<Nav nextPage={this.nextPage}/>
-						
+						<Nav />
 						<p>Made with &#9829; @ <a href="https://altcampus.io" target="_blank" rel="noopener noreferrer">AltCampus</a></p>
 					</footer>
 				</div>
@@ -135,4 +124,5 @@ function mapStateToProps(state) {
 }
 
 // Connect function connecting Redux with React.
-export default connect(mapStateToProps)(Home);
+
+export default connect(mapStateToProps)(Page3);
