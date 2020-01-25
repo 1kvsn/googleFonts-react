@@ -14,5 +14,4 @@ export default function fontsReducer (state=[], action) {
 			 default:
 				return state;
 		}
-		
  }

@@ -3,9 +3,8 @@ import { createStore } from 'redux';
 import { connect } from 'react-redux';
 import WebFont from 'webfontloader';
 
-import Nav from './Nav';
-import Messages from './Messages';
-import reducer from '../reducers/fonts-reducer';
+import Messages from '../constants';
+import reducer from '../reducer/fonts-reducer';
 
 export const store = createStore(reducer);
 
@@ -18,23 +17,20 @@ class Home extends React.Component {
 			themeColor: "",
 		}
 
-	// Hijacked the user input and update it on React state.
 	handleInput = (e) => {
-		this.setState({inputVal: e.target.value,})
+		this.setState({ inputVal: e.target.value })
 	}
 
-	// Font Increment & Decrement methods
 	handleInc = () => {
-		this.setState({fontSize: this.state.fontSize+1})
+		this.setState({ fontSize: this.state.fontSize+1 })
 	}
 	handleDec = () => {
-		this.setState({fontSize: this.state.fontSize-1})
+		this.setState({ fontSize: this.state.fontSize-1 })
 	}
 
-	// Font Effect Method
 	handleEffect = (data) => {
-		this.setState({isChecked: !this.state.isChecked,})
-		this.props.dispatch({type: "TOGGLE", payload: data})
+		this.setState({ isChecked: !this.state.isChecked })
+		this.props.dispatch({ type: "TOGGLE", payload: data })
 	}
 
 	// nextPage = () => {
@@ -56,7 +52,7 @@ class Home extends React.Component {
 	 }
 
 	render() {
-		const {fontsReducer} =this.props.fonts;
+		const { fontsReducer } = this.props.fonts;
 		const slicedArr = fontsReducer.slice(2, 18);
 
 		return (
@@ -91,7 +87,6 @@ class Home extends React.Component {
 										<div onClick={() => this.handleDec()}><p className="minus-btn font-sizer-common">-</p></div>
 									</span>
 
-									
 								</div>
 
 								{/* Conditional Rendering for Font Effects */}
@@ -116,7 +111,6 @@ class Home extends React.Component {
 
 					{/* Footer Section */}
 					<footer className="footer">
-						<Nav nextPage={this.nextPage}/>
 						
 						<p>Made with &#9829; @ <a href="https://altcampus.io" target="_blank" rel="noopener noreferrer">AltCampus</a></p>
 					</footer>
@@ -126,13 +120,10 @@ class Home extends React.Component {
 	}
 }
 
-// Making the Redux state appear as Props in React. 
 function mapStateToProps(state) {
-
 	return {
 		fonts: state,
 	}
 }
 
-// Connect function connecting Redux with React.
 export default connect(mapStateToProps)(Home);

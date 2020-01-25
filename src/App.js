@@ -3,32 +3,17 @@ import { connect } from 'react-redux';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import './App.scss';
-import api from './api';
 import Home from './components/Home';
-import Page2 from './components/Page2';
-import Page3 from './components/Page3';
-
-
 
 
 class App extends Component {
-
-    state = {
-      modArr: "",
-    }
   
   componentDidMount = () => {
-		fetch(api.key)
-      .then(res => res.json())
-      .then(({items}) => {
-        const data = items.map((item) =>
-           ({ family: item.family,
-            fontFamily:`https://fonts.googleapis.com/css?family=${item.family}`,
-            isClicked: false,  })
-        )
-        // this.setState({modArr:data})
-        this.props.dispatch({type: "ADD_FONTS", payload: data})
-      })
+		fetch(`https://www.googleapis.com/webfonts/v1/webfonts?key=${process.env.REACT_APP_API_KEY}`)
+    .then(res => res.json())
+    .then(({ items }) => {
+      this.props.dispatch({ type:"ADD_FONTS",payload: items })
+    }).catch(err => console.error(err))
   }
   
   render() {
@@ -37,9 +22,6 @@ class App extends Component {
         <div className="App">
           <Switch>
             <Route exact path='/' component={Home} />
-            <Route exact path='/2' component={Page2} />
-            <Route exact path='/3' component={Page3} />
-
           </Switch>
         </div>
       </Router>
